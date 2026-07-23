@@ -224,7 +224,7 @@ function HomePage() {
               Already registered?
             </p>
             <h3 className="mt-2 font-display text-2xl">
-              Create your Personalized DP now
+              Create Your Personalized DP Now!
             </h3>
             <p className="mt-2 text-sm text-muted-foreground">
               Skip the form — go straight to the DP Generator.
@@ -246,7 +246,7 @@ function HomePage() {
           <span className="ornament">Ask</span>
           <h2 className="mt-4 font-display text-4xl sm:text-5xl">Have a Question?</h2>
           <p className="mt-3 text-base text-muted-foreground">
-            Submit your question anonymously. No name, no email — just your question.
+            Submit Your Question. No Name, No eMail — Just Your Question.
           </p>
           <span className="gold-divider mx-auto mt-6 w-40" />
           <button
