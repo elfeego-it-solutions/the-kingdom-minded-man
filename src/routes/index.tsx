@@ -20,21 +20,21 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       {
-        title: "Men's Conference 2026 · The Kingdom Minded Man · Christ Embassy Karu 1",
+        title: "CE Men's Conference 2026 · The Kingdom Minded Man",
       },
       {
         name: "description",
         content:
-          "Register for Christ Embassy Karu 1 Men's Conference 2026 — The Kingdom Minded Man. Fri 31 Jul – Sun 2 Aug 2026, Church 1 Auditorium.",
+          "Register for CE Karu 1 Men's Conference 2026 — The Kingdom Minded Man | Fri 31 Jul – Sun 2 Aug 2026 | Church 1 Auditorium.",
       },
       {
         property: "og:title",
-        content: "Men's Conference 2026 · The Kingdom Minded Man",
+        content: "CE Men's Conference 2026 · The Kingdom Minded Man",
       },
       {
         property: "og:description",
         content:
-          "Christ Embassy Karu 1 — Raising Spirit-filled Kingdom-minded Men. 31 Jul – 2 Aug 2026.",
+          "Register for CE Karu 1 Men's Conference 2026 — The Kingdom Minded Man | Fri 31 Jul – Sun 2 Aug 2026 | Church 1 Auditorium.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
