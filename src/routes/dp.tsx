@@ -14,12 +14,12 @@ export const Route = createFileRoute("/dp")({
     meta: [
       {
         title:
-          "Create Your Personalized DP · Men's Conference 2026 · Christ Embassy Karu 1",
+          "Create Your Personalized DP · Men's Conference 2026 · CE Karu 1",
       },
       {
         name: "description",
         content:
-          "Generate your personalized Men's Conference 2026 display picture — The Kingdom Minded Man. Upload, adjust, download.",
+          "Generate Your Personalized Men's Conference 2026 DP — The Kingdom Minded Man. Upload, Adjust, Download.",
       },
       {
         property: "og:title",
@@ -27,7 +27,7 @@ export const Route = createFileRoute("/dp")({
       },
       {
         property: "og:description",
-        content: "Personalize your DP for The Kingdom Minded Man conference.",
+        content: "Personalize Your DP for The Kingdom Minded Man conference.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -341,8 +341,7 @@ function ThankYou({
           </p>
           <p className="mt-1 text-sm text-muted-foreground">31 Jul – 2 Aug 2026</p>
           <p className="mt-4 text-sm text-foreground/80">
-            Please share your personalized DP on social media and invite others to
-            attend.
+            Please Share Your Personalized DP and Invite Others to attend.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3 md:justify-start">
             <button
