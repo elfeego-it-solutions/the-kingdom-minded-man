@@ -288,8 +288,7 @@ function HomePage() {
               Submit Your Question
             </DialogTitle>
             <DialogDescription>
-              Your submission is completely anonymous. We do not collect your name,
-              email, or phone number.
+              {"\n"}
             </DialogDescription>
           </DialogHeader>
           <textarea
