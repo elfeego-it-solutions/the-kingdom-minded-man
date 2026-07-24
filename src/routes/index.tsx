@@ -67,18 +67,14 @@ function HomePage() {
     try {
       await register({ data: payload });
       try {
-        sessionStorage.setItem(
-          "mc2026:attendee",
-          JSON.stringify({ fullname: payload.fullname, phone: payload.phone }),
-        );
+        sessionStorage.setItem("mc2026:attendee", JSON.stringify({ fullname: payload.fullname, phone: payload.phone }));
       } catch {
         // ignore storage errors
       }
       toast.success("Registration successful. Let's create your DP!");
       navigate({ to: "/dp" });
     } catch (err) {
-      const msg =
-        err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
       toast.error(msg);
     } finally {
       setSubmitting(false);
@@ -97,8 +93,7 @@ function HomePage() {
       setQuestion("");
       setQuestionOpen(false);
     } catch (err) {
-      const msg =
-        err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
       toast.error(msg);
     } finally {
       setQuestionSubmitting(false);
@@ -141,20 +136,12 @@ function HomePage() {
       </section>
 
       {/* ---------- REGISTRATION ---------- */}
-      <section
-        id="register"
-        className="px-6 py-20 sm:py-24"
-        style={{ backgroundColor: "var(--color-cream)" }}
-      >
+      <section id="register" className="px-6 py-20 sm:py-24" style={{ backgroundColor: "var(--color-cream)" }}>
         <div className="mx-auto max-w-3xl">
           <div className="text-center">
             <span className="ornament">Registration</span>
-            <h2 className="mt-4 font-display text-4xl sm:text-5xl">
-              Register for Men's Conference 2026
-            </h2>
-            <p className="mt-3 font-display text-2xl gold-text">
-              The Kingdom Minded Man
-            </p>
+            <h2 className="mt-4 font-display text-4xl sm:text-5xl">Register for Men's Conference 2026</h2>
+            <p className="mt-3 font-display text-2xl gold-text">The Kingdom Minded Man</p>
             <span className="gold-divider mx-auto mt-6 w-40" />
           </div>
 
@@ -170,7 +157,7 @@ function HomePage() {
                   minLength={2}
                   maxLength={120}
                   className={inputCls}
-                  placeholder="John Doe"
+                  placeholder="Your Name"
                 />
               </Field>
 
@@ -180,19 +167,12 @@ function HomePage() {
                   type="email"
                   maxLength={255}
                   className={inputCls}
-                  placeholder="you@example.com (optional)"
+                  placeholder="name@example.com (optional)"
                 />
               </Field>
 
               <Field label="Phone Number" required>
-                <input
-                  name="phone"
-                  required
-                  minLength={5}
-                  maxLength={40}
-                  className={inputCls}
-                  placeholder="+234 ..."
-                />
+                <input name="phone" required minLength={5} maxLength={40} className={inputCls} placeholder="+234 ..." />
               </Field>
 
               <Field label="Church" required>
@@ -212,31 +192,21 @@ function HomePage() {
                   minLength={1}
                   maxLength={120}
                   className={inputCls}
-                  placeholder="Your cell name"
+                  placeholder="Your Cell Name"
                 />
               </Field>
             </div>
 
-            <button
-              type="submit"
-              disabled={submitting}
-              className="btn-gold mt-8 w-full rounded-xl px-6 py-4 text-base"
-            >
+            <button type="submit" disabled={submitting} className="btn-gold mt-8 w-full rounded-xl px-6 py-4 text-base">
               {submitting ? "Submitting…" : "Submit & Create Personalized DP"}
             </button>
           </form>
 
           {/* ---------- QUICK DP ACCESS ---------- */}
           <div className="mt-8 rounded-2xl border border-gold bg-card p-6 text-center shadow-elegant sm:p-8">
-            <p className="text-xs uppercase tracking-[0.25em] text-gold-deep">
-              Already registered?
-            </p>
-            <h3 className="mt-2 font-display text-2xl">
-              Create Your Personalized DP Now!
-            </h3>
-            <p className="mt-2 text-sm text-muted-foreground">
-              Skip the form — go straight to the DP Generator.
-            </p>
+            <p className="text-xs uppercase tracking-[0.25em] text-gold-deep">Already registered?</p>
+            <h3 className="mt-2 font-display text-2xl">Create Your Personalized DP Now!</h3>
+            <p className="mt-2 text-sm text-muted-foreground">Skip the form — go straight to the DP Generator.</p>
             <button
               type="button"
               onClick={() => navigate({ to: "/dp" })}
@@ -271,12 +241,8 @@ function HomePage() {
       <footer className="border-t border-border/60 bg-primary text-primary-foreground">
         <div className="mx-auto max-w-6xl px-6 py-10 text-center">
           <p className="font-display text-2xl gold-text">The Kingdom Minded Man</p>
-          <p className="mt-2 text-sm opacity-80">
-            Christ Embassy Karu 1 · Men's Conference 2026 · 31 Jul – 2 Aug 2026
-          </p>
-          <p className="mt-6 text-xs opacity-60">
-            © {new Date().getFullYear()} Christ Embassy Karu 1. All rights reserved.
-          </p>
+          <p className="mt-2 text-sm opacity-80">CE Karu 1 · Men's Conference 2026 · 31 Jul – 2 Aug 2026</p>
+          <p className="mt-6 text-xs opacity-60">© {new Date().getFullYear()} CE Karu 1. All rights reserved.</p>
         </div>
       </footer>
 
@@ -284,12 +250,8 @@ function HomePage() {
       <Dialog open={questionOpen} onOpenChange={setQuestionOpen}>
         <DialogContent className="sm:max-w-lg">
           <DialogHeader>
-            <DialogTitle className="font-display text-2xl">
-              Submit Your Question
-            </DialogTitle>
-            <DialogDescription>
-              {"\n"}
-            </DialogDescription>
+            <DialogTitle className="font-display text-2xl">Submit Your Question</DialogTitle>
+            <DialogDescription>{"\n"}</DialogDescription>
           </DialogHeader>
           <textarea
             value={question}
