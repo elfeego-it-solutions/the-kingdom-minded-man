@@ -258,7 +258,7 @@ function HomePage() {
             onChange={(e) => setQuestion(e.target.value)}
             maxLength={2000}
             rows={6}
-            placeholder="Type your question here…"
+            placeholder="Enter Your Question Here…"
             className={`${inputCls} resize-none`}
           />
           <DialogFooter>
