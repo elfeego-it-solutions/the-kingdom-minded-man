@@ -141,7 +141,19 @@ function DpPage() {
       const url = canvas.toDataURL("image/png");
       setFinalUrl(url);
       try {
-        await track({});
+        let attendee: { fullname?: string; phone?: string } = {};
+        try {
+          const raw = sessionStorage.getItem("mc2026:attendee");
+          if (raw) attendee = JSON.parse(raw);
+        } catch {
+          // ignore
+        }
+        await track({
+          data: {
+            fullname: attendee.fullname ?? "",
+            phone: attendee.phone ?? "",
+          },
+        });
       } catch {
         // analytics best-effort
       }

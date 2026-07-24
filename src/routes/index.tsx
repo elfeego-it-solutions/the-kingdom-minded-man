@@ -66,6 +66,14 @@ function HomePage() {
     setSubmitting(true);
     try {
       await register({ data: payload });
+      try {
+        sessionStorage.setItem(
+          "mc2026:attendee",
+          JSON.stringify({ fullname: payload.fullname, phone: payload.phone }),
+        );
+      } catch {
+        // ignore storage errors
+      }
       toast.success("Registration successful. Let's create your DP!");
       navigate({ to: "/dp" });
     } catch (err) {
