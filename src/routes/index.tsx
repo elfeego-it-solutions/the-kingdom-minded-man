@@ -71,10 +71,10 @@ function HomePage() {
       } catch {
         // ignore storage errors
       }
-      toast.success("Registration successful. Let's create your DP!");
+      toast.success("Registration Successful. Let's Create Your DP!");
       navigate({ to: "/dp" });
     } catch (err) {
-      const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      const msg = err instanceof Error ? err.message : "Something Went Wrong. Please Attempt Again.";
       toast.error(msg);
     } finally {
       setSubmitting(false);
@@ -83,17 +83,17 @@ function HomePage() {
 
   async function onQuestion() {
     if (question.trim().length < 3) {
-      toast.error("Please write your question first.");
+      toast.error("Please Write Your Question First.");
       return;
     }
     setQuestionSubmitting(true);
     try {
       await askQuestion({ data: { question: question.trim() } });
-      toast.success("Your question has been submitted successfully. Thank you.");
+      toast.success("Your Question Has Been Submitted. Thank You.");
       setQuestion("");
       setQuestionOpen(false);
     } catch (err) {
-      const msg = err instanceof Error ? err.message : "Something went wrong. Please try again.";
+      const msg = err instanceof Error ? err.message : "Something Went Wrong. Please Atempt Again.";
       toast.error(msg);
     } finally {
       setQuestionSubmitting(false);
@@ -204,7 +204,7 @@ function HomePage() {
 
           {/* ---------- QUICK DP ACCESS ---------- */}
           <div className="mt-8 rounded-2xl border border-gold bg-card p-6 text-center shadow-elegant sm:p-8">
-            <p className="text-xs uppercase tracking-[0.25em] text-gold-deep">Already registered?</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-gold-deep">Have You Registered?</p>
             <h3 className="mt-2 font-display text-2xl">Create Your Personalized DP Now!</h3>
             <p className="mt-2 text-sm text-muted-foreground">Skip the form — go straight to the DP Generator.</p>
             <button
