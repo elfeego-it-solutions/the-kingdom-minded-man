@@ -204,9 +204,9 @@ function HomePage() {
 
           {/* ---------- QUICK DP ACCESS ---------- */}
           <div className="mt-8 rounded-2xl border border-gold bg-card p-6 text-center shadow-elegant sm:p-8">
-            <p className="text-xs uppercase tracking-[0.25em] text-gold-deep">Have You Registered?</p>
+            <p className="text-xs uppercase tracking-[0.25em] text-gold-deep">Hello!</p>
             <h3 className="mt-2 font-display text-2xl">Create Your Personalized DP Now!</h3>
-            <p className="mt-2 text-sm text-muted-foreground">Skip the form — go straight to the DP Generator.</p>
+            <p className="mt-2 text-sm text-muted-foreground">Go straight to the DP Generator.</p>
             <button
               type="button"
               onClick={() => navigate({ to: "/dp" })}
