@@ -178,7 +178,7 @@ function HomePage() {
               <Field label="Church" required>
                 <select name="church" required className={inputCls} defaultValue="">
                   <option value="" disabled>
-                    Select your church
+                    Select Your Church
                   </option>
                   <option value="Church 1">Church 1</option>
                   <option value="Church 2">Church 2</option>
