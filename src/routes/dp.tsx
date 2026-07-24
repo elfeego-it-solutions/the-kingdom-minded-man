@@ -157,10 +157,10 @@ function DpPage() {
       } catch {
         // analytics best-effort
       }
-      toast.success("Your personalized DP is ready!");
+      toast.success("Your Personalized DP is Done!");
     } catch (err) {
       console.error(err);
-      toast.error("Could not generate DP. Please try a different image.");
+      toast.error("Could not generate DP. Please use a different image.");
     } finally {
       setGenerating(false);
     }
