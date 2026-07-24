@@ -214,7 +214,7 @@ function DpPage() {
               Create Your Personalized DP
             </h1>
             <p className="mt-3 text-base text-muted-foreground">
-              Upload your photo, adjust it inside the frame, then download in high
+              Upload photo, adjust it inside the frame, then download in high
               resolution — perfect for WhatsApp, Facebook, Instagram, X, and Telegram.
             </p>
             <span className="gold-divider mx-auto mt-6 w-40" />
