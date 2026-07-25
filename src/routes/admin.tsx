@@ -57,9 +57,7 @@ function AdminLoginPage() {
         <div className="text-center">
           <span className="ornament">Admin</span>
           <h1 className="mt-3 font-display text-3xl">Dashboard Login</h1>
-          <p className="mt-1 text-sm text-muted-foreground">
-            Enter your admin password to continue.
-          </p>
+          <p className="mt-1 text-sm text-muted-foreground">Enter Admin Password to Continue.</p>
         </div>
         <label className="mt-6 block">
           <span className="mb-1.5 block text-xs font-medium uppercase tracking-wider text-muted-foreground">
@@ -74,11 +72,7 @@ function AdminLoginPage() {
             className="w-full rounded-lg border border-input bg-background px-4 py-3 text-sm text-foreground focus:border-gold focus:outline-none focus:ring-2 focus:ring-gold/40"
           />
         </label>
-        <button
-          type="submit"
-          disabled={busy}
-          className="btn-gold mt-6 w-full rounded-xl px-6 py-3 text-sm"
-        >
+        <button type="submit" disabled={busy} className="btn-gold mt-6 w-full rounded-xl px-6 py-3 text-sm">
           {busy ? "Signing in…" : "Sign In"}
         </button>
       </form>
