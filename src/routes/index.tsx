@@ -122,15 +122,15 @@ function HomePage() {
         <div className="mx-auto grid max-w-6xl gap-4 px-6 py-6 text-center sm:grid-cols-3 sm:text-left">
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-gold">Dates</p>
-            <p className="font-display text-xl">Fri 31 Jul – Sun 2 Aug 2026</p>
+            <p className="font-display text-xl text-white">Fri 31 Jul – Sun 2 Aug 2026</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-gold">Venue</p>
-            <p className="font-display text-xl">Church 1 Auditorium</p>
+            <p className="font-display text-xl text-white">Church 1 Auditorium</p>
           </div>
           <div>
             <p className="text-xs uppercase tracking-[0.25em] text-gold">Theme</p>
-            <p className="font-display text-xl">The Kingdom Minded Man</p>
+            <p className="font-display text-xl text-white">The Kingdom Minded Man</p>
           </div>
         </div>
       </section>
