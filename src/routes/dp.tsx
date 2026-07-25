@@ -6,7 +6,7 @@ import type { Area } from "react-easy-crop";
 import { toast } from "sonner";
 
 import { trackDpGenerated } from "@/lib/dp.functions";
-import dpFrame from "@/assets/dp-frame.png.asset.json";
+import dpFrame from "@/assets/dp-frame-v2.png.asset.json";
 import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createFileRoute("/dp")({
@@ -40,9 +40,9 @@ export const Route = createFileRoute("/dp")({
 // (percentage of the frame's width/height). Measured against the uploaded
 // personalized DP poster.
 const CIRCLE = {
-  centerX: 0.29,
-  centerY: 0.335,
-  radius: 0.215,
+  centerX: 0.332,
+  centerY: 0.408,
+  radius: 0.226,
 };
 
 const OUTPUT_SIZE = 1080;
@@ -91,52 +91,70 @@ function DpPage() {
   }
 
   async function generate() {
-    if (!imageSrc || !croppedAreaPixels) {
+    if (!imageSrc) {
       toast.error("Please upload a photo first.");
       return;
     }
     setGenerating(true);
     try {
+      console.log("[DP] FileReader result length:", imageSrc.length);
       const [userImg, frameImg] = await Promise.all([
         loadImage(imageSrc),
         loadImage(dpFrame.url),
       ]);
+      console.log("[DP] user image", userImg.naturalWidth, "x", userImg.naturalHeight);
+      console.log("[DP] frame image", frameImg.naturalWidth, "x", frameImg.naturalHeight);
 
       const canvas = document.createElement("canvas");
       canvas.width = OUTPUT_SIZE;
       canvas.height = OUTPUT_SIZE;
       const ctx = canvas.getContext("2d");
       if (!ctx) throw new Error("Canvas not supported");
+      console.log("[DP] canvas", canvas.width, "x", canvas.height);
 
-      // Cream background so any transparent frame areas look intentional.
+      // Layer 1 — cream background.
       ctx.fillStyle = "#F7F4EE";
       ctx.fillRect(0, 0, OUTPUT_SIZE, OUTPUT_SIZE);
 
-      // Draw the cropped user photo inside the circular slot.
       const cx = CIRCLE.centerX * OUTPUT_SIZE;
       const cy = CIRCLE.centerY * OUTPUT_SIZE;
       const r = CIRCLE.radius * OUTPUT_SIZE;
 
+      // Layer 2 + 3 — clip to circle, then draw user photo (cover fit).
       ctx.save();
       ctx.beginPath();
       ctx.arc(cx, cy, r, 0, Math.PI * 2);
       ctx.closePath();
       ctx.clip();
-      ctx.drawImage(
-        userImg,
-        croppedAreaPixels.x,
-        croppedAreaPixels.y,
-        croppedAreaPixels.width,
-        croppedAreaPixels.height,
-        cx - r,
-        cy - r,
-        r * 2,
-        r * 2,
-      );
-      ctx.restore();
 
-      // Draw the frame on top.
+      if (croppedAreaPixels) {
+        // Use the crop from react-easy-crop (respects drag + zoom).
+        ctx.drawImage(
+          userImg,
+          croppedAreaPixels.x,
+          croppedAreaPixels.y,
+          croppedAreaPixels.width,
+          croppedAreaPixels.height,
+          cx - r,
+          cy - r,
+          r * 2,
+          r * 2,
+        );
+      } else {
+        // Fallback cover fit if crop pixels aren't ready yet.
+        const iw = userImg.naturalWidth;
+        const ih = userImg.naturalHeight;
+        const side = Math.min(iw, ih);
+        const sx = (iw - side) / 2;
+        const sy = (ih - side) / 2;
+        ctx.drawImage(userImg, sx, sy, side, side, cx - r, cy - r, r * 2, r * 2);
+      }
+      ctx.restore();
+      console.log("[DP] drew user photo inside circle");
+
+      // Layer 7 — frame on top (transparent circular center in v2 asset).
       ctx.drawImage(frameImg, 0, 0, OUTPUT_SIZE, OUTPUT_SIZE);
+      console.log("[DP] drew frame overlay");
 
       const url = canvas.toDataURL("image/png");
       setFinalUrl(url);
@@ -159,7 +177,7 @@ function DpPage() {
       }
       toast.success("Your Personalized DP is Done!");
     } catch (err) {
-      console.error(err);
+      console.error("[DP] generation failed", err);
       toast.error("Could not generate DP. Please use a different image.");
     } finally {
       setGenerating(false);
