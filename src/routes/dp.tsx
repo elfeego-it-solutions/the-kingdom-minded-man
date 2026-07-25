@@ -6,7 +6,7 @@ import type { Area } from "react-easy-crop";
 import { toast } from "sonner";
 
 import { trackDpGenerated } from "@/lib/dp.functions";
-import dpFrame from "@/assets/dp-frame.png.asset.json";
+import dpFrame from "@/assets/dp-frame-v2.png.asset.json";
 import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createFileRoute("/dp")({
