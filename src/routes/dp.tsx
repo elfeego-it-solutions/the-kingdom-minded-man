@@ -40,9 +40,9 @@ export const Route = createFileRoute("/dp")({
 // (percentage of the frame's width/height). Measured against the uploaded
 // personalized DP poster.
 const CIRCLE = {
-  centerX: 0.29,
-  centerY: 0.335,
-  radius: 0.215,
+  centerX: 0.332,
+  centerY: 0.408,
+  radius: 0.226,
 };
 
 const OUTPUT_SIZE = 1080;
