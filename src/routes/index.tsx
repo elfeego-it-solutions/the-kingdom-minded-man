@@ -5,7 +5,7 @@ import { toast } from "sonner";
 
 import { submitRegistration } from "@/lib/registrations.functions";
 import { submitQuestion } from "@/lib/questions.functions";
-import heroBanner from "@/assets/site_header_banner_04.png.asset.json";
+import heroBanner from "@/assets/site_header_banner_04a.png.asset.json";
 import { Toaster } from "@/components/ui/sonner";
 import {
   Dialog,
