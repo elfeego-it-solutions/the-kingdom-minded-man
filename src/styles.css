@@ -121,13 +121,20 @@
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    font-weight: 500;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  p, li, span, label, a, button, input, textarea, select {
+    font-weight: 500;
+  }
   h1, h2, h3, h4, h5, h6, .font-display {
     font-family: var(--font-display);
+    font-weight: 700;
     letter-spacing: -0.01em;
+    color: var(--color-foreground);
   }
+  strong, b { font-weight: 700; }
 }
 
 /* -------------- Utilities -------------- */
