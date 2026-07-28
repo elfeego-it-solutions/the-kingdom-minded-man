@@ -2,7 +2,8 @@
 import { getCookie, setCookie, deleteCookie } from "@tanstack/react-start/server";
 import { createHmac, timingSafeEqual } from "crypto";
 
-const COOKIE = "admin_session";
+const COOKIE = "mc2026_admin_session_v2";
+const LEGACY_COOKIE = "admin_session";
 const MAX_AGE = 60 * 60 * 8; // 8 hours
 
 function sign(value: string, secret: string): string {
@@ -14,6 +15,7 @@ export function issueAdminSession(): void {
   if (!secret) throw new Error("SESSION_SECRET not configured");
   const issuedAt = Date.now().toString();
   const sig = sign(issuedAt, secret);
+  deleteCookie(LEGACY_COOKIE, { path: "/" });
   setCookie(COOKIE, `${issuedAt}.${sig}`, {
     httpOnly: true,
     secure: true,
@@ -25,6 +27,7 @@ export function issueAdminSession(): void {
 
 export function clearAdminSession(): void {
   deleteCookie(COOKIE, { path: "/" });
+  deleteCookie(LEGACY_COOKIE, { path: "/" });
 }
 
 export function isAdminAuthenticated(): boolean {
