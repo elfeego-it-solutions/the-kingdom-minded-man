@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Outlet, useLocation, useNavigate } from "@tanstack/react-router";
 import { useServerFn } from "@tanstack/react-start";
 import { useEffect, useState, type FormEvent } from "react";
 import { toast } from "sonner";
@@ -14,8 +14,14 @@ export const Route = createFileRoute("/admin")({
       { name: "robots", content: "noindex, nofollow" },
     ],
   }),
-  component: AdminLoginPage,
+  component: AdminRouteShell,
 });
+
+function AdminRouteShell() {
+  const location = useLocation();
+  if (location.pathname !== "/admin") return <Outlet />;
+  return <AdminLoginPage />;
+}
 
 function AdminLoginPage() {
   const navigate = useNavigate();
